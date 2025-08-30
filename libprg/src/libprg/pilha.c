@@ -59,3 +59,5 @@ void destruir_pilha(pilha *ponteiro) {
     free(ponteiro->elementos);
     free(ponteiro);
 }
+
+

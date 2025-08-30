@@ -15,3 +15,6 @@ int* mostra_pilha(pilha *ponteiro);
 void destruir_pilha(pilha* ponteiro);
 
 #endif // LIBPRG_H
+
+
+
