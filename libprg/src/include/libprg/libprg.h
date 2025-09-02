@@ -8,7 +8,7 @@ typedef struct pilha {
 } pilha;
 
 pilha* criar_pilha(int capacidade);
-int adicionar_elemento(pilha* ponteiro, int elemento);
+int empilhar(pilha *ponteiro, int elemento);
 int remove_elemento(pilha* ponteiro);
 int mostrar_topo(pilha *ponteiro);
 int* mostra_pilha(pilha *ponteiro);

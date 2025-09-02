@@ -13,7 +13,7 @@ pilha* criar_pilha(int capacidade) {
 }
 
 //adiciona elemento na pilha
-int adicionar_elemento(pilha *ponteiro, int elemento) {
+int empilhar(pilha *ponteiro, int elemento) {
     if (ponteiro->topo < ponteiro->capacidade - 1) {
         ponteiro->topo++;
         ponteiro->elementos[ponteiro->topo] = elemento;
