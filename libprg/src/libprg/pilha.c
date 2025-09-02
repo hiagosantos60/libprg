@@ -24,7 +24,7 @@ int empilhar(pilha *ponteiro, int elemento) {
 }
 
 //remover elemento da pilha
-int remove_elemento(pilha *ponteiro) {
+int desempilhar(pilha *ponteiro) {
     if (ponteiro->topo >= 0) {
         int elemento = ponteiro->elementos[ponteiro->topo];
         ponteiro->topo--;
