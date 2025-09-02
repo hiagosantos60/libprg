@@ -10,7 +10,7 @@ typedef struct pilha {
 pilha* criar_pilha(int capacidade);
 int empilhar(pilha *ponteiro, int elemento);
 int desempilhar(pilha *ponteiro);
-int mostrar_topo(pilha *ponteiro);
+int mostrar_topo_pilha(pilha *ponteiro);
 int* mostra_pilha(pilha *ponteiro);
 void destruir_pilha(pilha* ponteiro);
 

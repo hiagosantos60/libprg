@@ -36,7 +36,7 @@ int desempilhar(pilha *ponteiro) {
 }
 
 //mostra o topo da pilha
-int mostrar_topo(pilha *ponteiro) {
+int mostrar_topo_pilha(pilha *ponteiro) {
     if (ponteiro->topo >= 0) {
         return ponteiro->elementos[ponteiro->topo];
     } else {
