@@ -1,20 +1,13 @@
 #ifndef LIBPRG_H
 #define LIBPRG_H
 
-typedef struct pilha {
-    int *elementos;
-    int topo;
-    int capacidade;
-} pilha;
+typedef struct pilha pilha_t;
 
-pilha* criar_pilha(int capacidade);
-int empilhar(pilha *ponteiro, int elemento);
-int desempilhar(pilha *ponteiro);
-int mostrar_topo_pilha(pilha *ponteiro);
-int* mostra_pilha(pilha *ponteiro);
-void destruir_pilha(pilha* ponteiro);
+pilha_t* criar_pilha(int capacidade);
+int empilhar(pilha_t *ponteiro, int elemento);
+int desempilhar(pilha_t *ponteiro);
+int mostrar_topo_pilha(pilha_t *ponteiro);
+int* mostra_pilha(pilha_t *ponteiro);
+void destruir_pilha(pilha_t* ponteiro);
 
-#endif // LIBPRG_H
-
-
-
+#endif
