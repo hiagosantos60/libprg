@@ -7,6 +7,7 @@ struct pilha_t {
     int capacidade;
 };
 
+
 //criar a pilha na memória
 pilha_t* criar_pilha(int capacidade) {
     pilha_t *ponteiro = malloc(sizeof(pilha_t));
