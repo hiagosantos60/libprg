@@ -1,11 +1,11 @@
 #include <stdlib.h>
 #include <libprg/libprg.h>
 
-typedef struct pilha {
+struct pilha_t {
     int *elementos;
     int topo;
     int capacidade;
-} pilha_t;
+};
 
 //criar a pilha na memória
 pilha_t* criar_pilha(int capacidade) {
