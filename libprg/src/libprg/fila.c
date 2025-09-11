@@ -6,7 +6,7 @@
 fila_t *criar_fila(int capacidade) {
     fila_t *f = malloc(sizeof(fila_t));
 
-    f->elementos = malloc(capacidade * sizeoponteiro(int));
+    f->elementos = malloc(capacidade * sizeof(int));
     f->inicio = 0;
     f->fim = 0;
     f->tamanho = 0;
@@ -18,42 +18,48 @@ fila_t *criar_fila(int capacidade) {
 void enfileirar(fila_t *f, int valor) {
     f->elementos[f->fim] = valor;
 
-    if (fila_cheia(*f) && f->inicio == 0) {
+    if (fila_cheia(f) && f->inicio == 0) {
         exit(EXIT_FAILURE);
-        //f->fim = (f->fim + 1) % f->capacidade;
+    } else if (fila_cheia(f) && f->inicio !=0 ) {
+        f->fim = (f->fim+1) % f->capacidade;
+        exit(EXIT_FAILURE);
     } else {
         f->fim++;
     }
 }
 
 int desenfileirar(fila_t *f) {
-    if (!fila_cheia(*f)) {
+    if (!fila_cheia(f)) {
         int elementos = f->elementos[f->inicio];
         f->inicio++;
-        return elemento;
+        return elementos;
     } else {
         return -1;
     }
 }
 
-// inicio_fila{
-//  mostrar elemento no inicio da fila
+//usar em outras funções para verificar a continuidade da fila e do código
+bool fila_cheia(fila_t *f) {
+    return f->tamanho == f->fim;
+}
+
+//mostrar elemento no inicio da fila
+// int inicio_fila(fila_t *f) {
+//     return f->inicio;
 // }
 //
-// fim_fila{
-// mostar o que está no final da fila
-// }
+// //mostar o que está no final da fila
+// int fim_fila(fila_t *f){
 //
+// }
+
+
 // tamanho_fila{
 // mostrar o tamanho da fila
 // }
 //
 
-//usar em outras funções para verificar a continuidade da fila
-bool fila_cheia(fila_t f) {
-    return f.tamanho >= f.capacidade;
-}
-
+//liberar o espaço de memória alocado
 void destruir_fila(fila_t *f) {
     free(f->elementos);
     free(f);
