@@ -1,15 +1,14 @@
 #include <stdlib.h>
 #include <libprg/libprg.h>
 
-struct pilha_t {
+typedef struct pilha {
     int *elementos;
     int topo;
     int capacidade;
-};
-
+} pilha_t;
 
 //criar a pilha na memória
-pilha_t* criar_pilha(int capacidade) {
+pilha_t *criar_pilha(int capacidade) {
     pilha_t *ponteiro = malloc(sizeof(pilha_t));
     ponteiro->elementos = malloc(sizeof(int) * capacidade);
     ponteiro->topo = -1;
@@ -34,8 +33,7 @@ int desempilhar(pilha_t *ponteiro) {
         int elemento = ponteiro->elementos[ponteiro->topo];
         ponteiro->topo--;
         return elemento;
-    }
-    else {
+    } else {
         return -1;
     }
 }
@@ -51,8 +49,8 @@ int mostrar_topo_pilha(pilha_t *ponteiro) {
 }
 
 //mostrar pilha
-int* mostra_pilha(pilha_t *ponteiro) {
-    int* elementos_copia = malloc(sizeof(int) * (ponteiro->topo + 1));
+int *mostra_pilha(pilha_t *ponteiro) {
+    int *elementos_copia = malloc(sizeof(int) * (ponteiro->topo + 1));
     for (int i = 0; i <= ponteiro->topo; i++) {
         elementos_copia[i] = ponteiro->elementos[i];
     }
