@@ -58,6 +58,11 @@ int tamanho_fila (fila_t *f){
     return f->tamanho;
 }
 
+//mostrar elementos fila
+int mostrar_elementos(fila_t *f) {
+    return
+}
+
 //liberar o espaço de memória alocado
 void destruir_fila(fila_t *f) {
     free(f->elementos);
