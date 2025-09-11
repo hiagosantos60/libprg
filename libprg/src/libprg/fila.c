@@ -20,7 +20,7 @@ void enfileirar(fila_t *f, int valor) {
 
     if (fila_cheia(f) && f->inicio == 0) {
         exit(EXIT_FAILURE);
-    } else if (fila_cheia(f) && f->inicio !=0 ) {
+    } else if (f->inicio !=0) {
         f->fim = (f->fim+1) % f->capacidade;
         exit(EXIT_FAILURE);
     } else {
@@ -44,20 +44,19 @@ bool fila_cheia(fila_t *f) {
 }
 
 //mostrar elemento no inicio da fila
-// int inicio_fila(fila_t *f) {
-//     return f->inicio;
-// }
-//
+int inicio_fila(fila_t *f) {
+    return f->inicio;
+}
+
 // //mostar o que está no final da fila
-// int fim_fila(fila_t *f){
-//
-// }
+int fim_fila(fila_t *f){
+    return f->fim;
+}
 
-
-// tamanho_fila{
-// mostrar o tamanho da fila
-// }
-//
+//mostrar o tamanho da fila
+int tamanho_fila (fila_t *f){
+    return f->tamanho;
+}
 
 //liberar o espaço de memória alocado
 void destruir_fila(fila_t *f) {
