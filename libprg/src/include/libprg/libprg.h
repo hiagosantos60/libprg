@@ -23,5 +23,6 @@ typedef struct fila {
 
 fila_t* criar_fila(int capacidade);
 void enfileirar(fila_t* fila, int valor);
+int desenfileirar(fila_t *f);
 
 #endif

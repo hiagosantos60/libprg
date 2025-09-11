@@ -26,9 +26,15 @@ void enfileirar(fila_t *f, int valor) {
     }
 }
 
-// int desenfileirar() {
-//
-// }
+int desenfileirar(fila_t *f) {
+    if (!fila_cheia(*f)) {
+        int elementos = f->elementos[f->inicio];
+        f->inicio++;
+        return elemento;
+    } else {
+        return -1;
+    }
+}
 
 // inicio_fila{
 //  mostrar elemento no inicio da fila
