@@ -45,12 +45,12 @@ bool fila_cheia(fila_t *f) {
 
 //mostrar elemento no inicio da fila
 int inicio_fila(fila_t *f) {
-    return f->inicio;
+    return f->elementos[f->inicio];
 }
 
 // //mostar o que está no final da fila
 int fim_fila(fila_t *f){
-    return f->fim;
+    return f->elementos[f->fim];
 }
 
 //mostrar o tamanho da fila
