@@ -61,7 +61,10 @@ int tamanho_fila (fila_t *f){
 
 //mostrar elementos fila
 int mostrar_elementos(fila_t *f) {
-    return
+    for (int i = 0; i < f->tamanho; i++) {
+        int indice = (f->inicio+1) % f->capacidade;
+        printf("%d ",f->elementos[indice]);
+    }
 }
 
 //liberar o espaço de memória alocado
