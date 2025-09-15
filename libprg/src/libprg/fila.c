@@ -16,25 +16,31 @@ fila_t *criar_fila(int capacidade) {
 }
 
 void enfileirar(fila_t *f, int valor) {
-    f->elementos[f->fim] = valor;
-
-    if (fila_cheia(f) && f->inicio == 0) {
-        exit(EXIT_FAILURE);
-    } else if (f->inicio !=0) {
-        f->fim = (f->fim+1) % f->capacidade;
+    if (fila_cheia(f)) {
         exit(EXIT_FAILURE);
     } else {
-        f->fim++;
+        f->elementos[f->fim] = valor;
+        if (f->fim == f->capacidade - 1) {
+            f->fim = 0;
+        } else {
+            f->fim++;
+        }
+        f->tamanho++;
     }
 }
 
 int desenfileirar(fila_t *f) {
-    if (!fila_cheia(f)) {
-        int elementos = f->elementos[f->inicio];
-        f->inicio++;
-        return elementos;
+    if (f->tamanho == 0) {
+        exit(EXIT_FAILURE);
     } else {
-        return -1;
+        int elemento = f->elementos[f->inicio];
+        if (f->inicio == f->capacidade - 1) {
+            f->inicio = 0;
+        } else {
+            f->inicio++;
+        }
+        f->tamanho--;
+        return elemento;
     }
 }
 
@@ -60,10 +66,10 @@ int tamanho_fila (fila_t *f){
 }
 
 //mostrar elementos fila
-int mostrar_elementos(fila_t *f) {
+void mostrar_elementos(fila_t *f) {
     for (int i = 0; i < f->tamanho; i++) {
-        int indice = (f->inicio+1) % f->capacidade;
-        printf("%d ",f->elementos[indice]);
+        int indice = (f->inicio + i) % f->capacidade;
+        printf("%d ", f->elementos[indice]);
     }
 }
 

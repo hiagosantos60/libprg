@@ -29,6 +29,6 @@ bool fila_cheia(fila_t *f);
 int tamanho_fila (fila_t *f);
 int fim_fila(fila_t *f);
 int inicio_fila(fila_t *f);
-int mostrar_elementos(fila_t *f);
+void mostrar_elementos(fila_t *f);
 
 #endif
