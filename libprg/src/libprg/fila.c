@@ -40,7 +40,7 @@ int desenfileirar(fila_t *f) {
 
 //usar em outras funções para verificar a continuidade da fila e do código
 bool fila_cheia(fila_t *f) {
-    return f->tamanho == f->fim;
+    return f->tamanho == f->capacidade;
 }
 
 //mostrar elemento no inicio da fila
@@ -48,9 +48,10 @@ int inicio_fila(fila_t *f) {
     return f->elementos[f->inicio];
 }
 
-// //mostar o que está no final da fila
+//mostar o que está no final da fila
 int fim_fila(fila_t *f){
-    return f->elementos[f->fim];
+    int indice = (f->fim - 1 + f->capacidade) % f->capacidade;
+    return f->elementos[indice];
 }
 
 //mostrar o tamanho da fila
