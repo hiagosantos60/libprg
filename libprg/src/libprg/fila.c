@@ -3,6 +3,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct fila {
+    int* elementos;
+    int tamanho;
+    int capacidade;
+    int inicio;
+    int fim;
+}fila_t;
+
 fila_t *criar_fila(int capacidade) {
     fila_t *f = malloc(sizeof(fila_t));
 
