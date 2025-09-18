@@ -28,14 +28,13 @@ void mostrar_elementos(fila_t *f);
 
 
 //lista não ordenada
-typedef struct lista_linear lista_linear_t;
-lista_linear_t* criar_lista_linear(int capacidade);
-void destruir_lista_linear (lista_linear_t* lista);
-bool verificar_lista_linear_cheia(lista_linear_t* lista);
-bool verificar_lista_linear_vazia(lista_linear_t* lista);
-void remover(lista_linear_t* lista, int valor_a_remover);
-int buscar_elementos_lista_linear(lista_linear_t* lista, const int valor_a_comparar);
-void inserir_lista_linear (lista_linear_t* lista, const int valor_a_inserir);
-lista_linear_t* criar_lista_linear(const int capacidade);
+typedef struct lista_linear lista_t;
+lista_t* criar_lista(int capacidade, bool ordenada);
+void destruir_lista (lista_t* lista);
+bool verificar_lista_cheia(lista_t* lista);
+bool verificar_lista_vazia(lista_t* lista);
+void remover_elemento_lista(lista_t* lista, int valor_a_remover);
+int buscar_elementos_lista(lista_t* lista, int valor_a_buscar);
+void inserir_lista (lista_t* lista, int valor_a_inserir);
 
 #endif
