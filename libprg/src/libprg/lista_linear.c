@@ -165,3 +165,4 @@ void imprimir_lista_completa(lista_t *lista) {
     }
     printf("]\n");
 }
+
