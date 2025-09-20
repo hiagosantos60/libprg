@@ -42,7 +42,7 @@ bool verificar_lista_cheia(lista_t *lista) {
 
 
 void inserir_nao_ordenada(lista_t *lista, int valor_a_inserir) {
-    // Adiciona o elemento na primeira posição livre
+    //adiciona o elemento na primeira posição livre
     lista->elementos[lista->tamanho] = valor_a_inserir;
     lista->tamanho++;
 }
@@ -50,15 +50,15 @@ void inserir_nao_ordenada(lista_t *lista, int valor_a_inserir) {
 
 void inserir_ordenada(lista_t *lista, int valor_a_inserir) {
     int i = 0;
-    // 1. Encontra a posição correta para o novo valor
+    //encontra a posição correta para o novo valor
     while (i < lista->tamanho && lista->elementos[i] < valor_a_inserir) {
         i++;
     }
-    // 2. Desloca os elementos maiores para a direita
+    //desloca os elementos maiores para a direita
     for (int j = lista->tamanho; j > i; j--) {
         lista->elementos[j] = lista->elementos[j - 1];
     }
-    // 3. Insere o novo valor na posição correta
+    //insere o novo valor na posição correta
     lista->elementos[i] = valor_a_inserir;
     lista->tamanho++;
 }
@@ -82,10 +82,10 @@ void inserir_lista(lista_t *lista, const int valor_a_inserir) {
 int busca_linear(lista_t* lista, int valor_a_buscar) {
     for (int i = 0; i < lista->tamanho; i++) {
         if (lista->elementos[i] == valor_a_buscar) {
-            return i; // Retorna o índice
+            return i; //retorna o índice
         }
     }
-    return -1; // Retorna -1 (padrão) se não encontrar
+    return -1;
 }
 
 
@@ -142,7 +142,7 @@ void remover_elemento_lista(lista_t *lista, int valor_a_remover) {
 
 
 
-// 4. Imprime o primeiro elemento da lista e o tamanho da lista
+//Imprime o primeiro elemento da lista e o tamanho da lista
 //função necessária para o laboratório
 void imprimir_primeiro_e_tamanho(lista_t *lista) {
     if (verificar_lista_vazia(lista)) {
@@ -152,7 +152,7 @@ void imprimir_primeiro_e_tamanho(lista_t *lista) {
     }
 }
 
-// 6. Imprime todos os números da lista
+//Imprime todos os números da lista
 //função necessária para o lab
 void imprimir_lista_completa(lista_t *lista) {
     if (verificar_lista_vazia(lista)) {
