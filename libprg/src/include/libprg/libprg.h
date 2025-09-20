@@ -2,9 +2,8 @@
 #define LIBPRG_H
 #include <stdbool.h>
 
-typedef struct pilha pilha_t;
-
 //pilha
+typedef struct pilha pilha_t;
 pilha_t* criar_pilha(int capacidade);
 int empilhar(pilha_t *ponteiro, int elemento);
 int desempilhar(pilha_t *ponteiro);
@@ -36,5 +35,7 @@ bool verificar_lista_vazia(lista_t* lista);
 void remover_elemento_lista(lista_t* lista, int valor_a_remover);
 int buscar_elementos_lista(lista_t* lista, int valor_a_buscar);
 void inserir_lista (lista_t* lista, int valor_a_inserir);
+void imprimir_primeiro_e_tamanho(lista_t *lista);
+void imprimir_lista_completa(lista_t *lista);
 
 #endif
