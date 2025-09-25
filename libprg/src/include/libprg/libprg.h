@@ -38,4 +38,9 @@ void inserir_lista (lista_t* lista, int valor_a_inserir);
 void imprimir_primeiro_e_tamanho(lista_t *lista);
 void imprimir_lista_completa(lista_t *lista);
 
+//lista ligada
+typedef struct no no_t;
+no_t criar_lista_encadeada (int valor);
+no_t* inserir_elemento_lista_encadeada (int* proximo_elemento, int valor_a_inserir);
+
 #endif
