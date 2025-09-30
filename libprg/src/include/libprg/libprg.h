@@ -40,7 +40,8 @@ void imprimir_lista_completa(lista_t *lista);
 
 //lista ligada
 typedef struct no no_t;
-no_t criar_lista_encadeada (int valor);
-no_t* inserir_elemento_lista_encadeada (int* proximo_elemento, int valor_a_inserir);
+no_t* criar_lista_encadeada (int valor);
+void inserir_elemento_lista_encadeada(no_t** inicio, int valor_a_inserir);
+void remover_elementos_lista_encadeada(no_t** inicio, int valor_a_remover);
 
 #endif

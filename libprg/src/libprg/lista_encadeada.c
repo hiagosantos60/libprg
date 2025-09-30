@@ -3,12 +3,12 @@
 
 typedef struct no {
     int valor;
-    no_t* proximo;
-}no_t;
+    struct no *proximo;
+} no_t;
 
 //criar lista e nós
-no_t criar_lista_encadeada (int valor) {
-    no_t* no = malloc(sizeof(no_t));
+no_t *criar_lista_encadeada(int valor) {
+    no_t *no = malloc(sizeof(no_t));
     no->valor = valor;
     no->proximo = NULL;
 
@@ -16,22 +16,28 @@ no_t criar_lista_encadeada (int valor) {
 }
 
 //inserir elemento | nó
-no_t* inserir_elemento_lista_encadeada(int* inicio, int valor_a_inserir) {
-
-    no_t* novo_no = criar_lista_encadeada(valor_a_inserir);
-    novo_no->proximo = inicio;
-    inicio = novo_no;
-
-    return inicio;
+void inserir_elemento_lista_encadeada(no_t **inicio, int valor_a_inserir) {
+    no_t *novo_no = criar_lista_encadeada(valor_a_inserir); //cria um novo nó
+    novo_no->proximo = *inicio; // o novo nó aponta para o endereço do que já existia
+    *inicio = novo_no; //o início agora é o nó que foi inserido
 }
 
+//buscar elementos na lista
+no_t *buscar_elementos_lista_encadeada(no_t **inicio, int valor_a_buscar) {
 
-//remover elemento | nó
+    no_t* atual = *inicio; //variável auxiliar que serve para indicar
 
+    while (atual) {
+        if ((*inicio)->valor == valor_a_buscar) { //se o valor que estamos buscando for encontrado
+            return atual; //retorna o endereço de onde está o valor
+        }
+        atual = atual->proximo; //vou para o próximo nó caso nao retorne nada
+    }
 
+    return NULL;
+}
 
-//buscar elemento | nó
+//remover elementos da lista encadeada
+void remover_elementos_lista_encadeada(no_t** inicio, int valor_a_remover) {
 
-
-
-//destruir lista | destruir nós
+}
