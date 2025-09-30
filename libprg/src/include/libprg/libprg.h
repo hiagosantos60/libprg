@@ -43,5 +43,10 @@ typedef struct no no_t;
 no_t* criar_lista_encadeada (int valor);
 void inserir_elemento_lista_encadeada(no_t** inicio, int valor_a_inserir);
 void remover_elementos_lista_encadeada(no_t** inicio, int valor_a_remover);
+no_t *buscar_elementos_lista_encadeada(no_t **inicio, int valor_a_buscar);
+
+//lista_circular
+no_t *criar_lista_encadeada_circular(int valor);
+void inserir_elemento_lista_encadeada_circular(no_t **inicio, int valor_a_inserir)
 
 #endif
