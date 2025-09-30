@@ -24,11 +24,11 @@ void inserir_elemento_lista_encadeada(no_t **inicio, int valor_a_inserir) {
 
 //buscar elementos na lista
 no_t *buscar_elementos_lista_encadeada(no_t **inicio, int valor_a_buscar) {
-
-    no_t* atual = *inicio; //variável auxiliar que serve para indicar
+    no_t *atual = *inicio; //variável auxiliar que serve para indicar
 
     while (atual) {
-        if ((*inicio)->valor == valor_a_buscar) { //se o valor que estamos buscando for encontrado
+        if ((*inicio)->valor == valor_a_buscar) {
+            //se o valor que estamos buscando for encontrado
             return atual; //retorna o endereço de onde está o valor
         }
         atual = atual->proximo; //vou para o próximo nó caso nao retorne nada
@@ -38,6 +38,24 @@ no_t *buscar_elementos_lista_encadeada(no_t **inicio, int valor_a_buscar) {
 }
 
 //remover elementos da lista encadeada
-void remover_elementos_lista_encadeada(no_t** inicio, int valor_a_remover) {
+void remover_elementos_lista_encadeada(no_t **inicio, int valor_a_remover) {
+    no_t *atual = *inicio;
+    //se refere ao nó que estamos removendo, buscamos, encontramos e vamos fazer as alterações nos ponteiros de próximo do anterior
+    no_t *anterior = NULL;
 
+    while (atual) {
+        if (atual->valor == valor_a_remover) {
+            anterior->proximo = atual->proximo;
+            if (anterior) {
+                anterior->proximo = atual->proximo;
+            } else {
+                *inicio = atual->proximo;
+            }
+            free(atual); //destroi o nó que estamos removendo, as conexões já foram feitas anteriormente
+            break;
+        } else {
+            anterior = atual;
+            atual = atual->proximo;
+        }
+    }
 }
