@@ -59,3 +59,5 @@ void remover_elementos_lista_encadeada(no_t **inicio, int valor_a_remover) {
         }
     }
 }
+
+//void ordenar_lista_encadeada
