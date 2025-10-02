@@ -84,4 +84,29 @@ void remover_elementos_lista_encadeada(no_t **inicio, int valor_a_remover) {
     }
 }
 
-//void ordenar_lista_encadeada
+void destruir_lista_ligada (no_t **inicio) {
+    no_t* atual = *inicio;
+
+    while (atual) {
+        no_t* proximo = atual->proximo;
+        free (atual);
+        atual = proximo;
+    }
+}
+
+void destruir_lista_ligada_circular (no_t **inicio) {
+    no_t* atual = *inicio;
+
+    while (atual) {
+        no_t* proximo = atual->proximo;
+        if (proximo == *inicio) break;
+        free (atual);
+        atual = proximo;
+    }
+}
+
+//funções necessárias para o lab_7
+
+//imprimir elementos
+
+//mostrar primeiro
