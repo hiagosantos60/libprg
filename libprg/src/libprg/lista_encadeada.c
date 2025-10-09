@@ -1,5 +1,6 @@
 #include <libprg/libprg.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef struct no {
     int valor;
@@ -108,5 +109,25 @@ void destruir_lista_ligada_circular (no_t **inicio) {
 //funções necessárias para o lab_7
 
 //imprimir elementos
+void listar_lista_encadeada_lab_7(no_t** inicio) {
+    no_t* atual = *inicio; //o atual é o início
+
+    while (atual) //enquanto o atual for diferente de NULL
+    {
+        no_t* proximo = atual->proximo; //o próximo é igual ao próximo do atual
+        printf(" %d", atual->valor); //imprime o valor do atual
+        atual = proximo; //o atual passa a ser o próximo
+    }
+}
+
 
 //mostrar primeiro
+no_t* inicio_lista_encadeada_lab_7(no_t** inicio) {
+    //se o inicio não for null, continua na condição
+    if (inicio)
+    {
+        //retorna o que está armazenado aonde o inicio tá apontando (aponta para o inicio de verdade)
+        return *inicio;
+    }
+    return NULL;//caso esteja vazia
+}

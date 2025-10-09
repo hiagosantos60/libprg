@@ -50,5 +50,8 @@ void destruir_lista_ligada (no_t **inicio);
 no_t *criar_lista_encadeada_circular(int valor);
 void inserir_elemento_lista_encadeada_circular(no_t **inicio, int valor_a_inserir);
 void destruir_lista_ligada_circular (no_t **inicio);
+void listar_lista_encadeada_lab_7(no_t** inicio);
+no_t* inicio_lista_encadeada_lab_7(no_t** inicio);
+
 
 #endif
