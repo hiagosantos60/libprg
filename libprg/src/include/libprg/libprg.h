@@ -27,16 +27,7 @@ void mostrar_elementos(fila_t *f);
 
 
 //lista não ordenada
-//typedef struct lista_linear lista_t;
-
-typedef struct lista_linear {
-    int *elementos;     //ponteiro para apontar onde estão os elementos de fato
-    int tamanho;        //quantidade de elementos armazenados
-    int capacidade;     //capacidade total que cabe na lista
-    bool ordenada;      //flag para verificar se a lista é ordenada
-} lista_t;
-
-
+typedef struct lista_linear lista_t;
 lista_t* criar_lista(int capacidade, bool ordenada);
 void destruir_lista (lista_t* lista);
 bool verificar_lista_cheia(lista_t* lista);
