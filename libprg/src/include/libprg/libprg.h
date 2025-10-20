@@ -37,6 +37,7 @@ int buscar_elementos_lista(lista_t* lista, int valor_a_buscar);
 void inserir_lista (lista_t* lista, int valor_a_inserir);
 void imprimir_primeiro_e_tamanho(lista_t *lista);
 void imprimir_lista_completa(lista_t *lista);
+int tamanho_lista_linear(lista_t *lista);
 
 //lista ligada
 typedef struct no no_t;
