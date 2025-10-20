@@ -22,6 +22,9 @@ lista_t* criar_lista(int capacidade, bool ordenada) {
     return lista;
 }
 
+int tamanho_lista_linear(lista_t *lista) {
+    return lista->tamanho;
+}
 
 //liberar a memória alocada para a lista
 void destruir_lista(lista_t *lista) {
