@@ -5,15 +5,15 @@
 
 // --- Estrutura da Lista ---
 typedef struct lista_linear {
-    int *elementos;     //ponteiro para apontar onde estão os elementos de fato
-    int tamanho;        //quantidade de elementos armazenados
-    int capacidade;     //capacidade total que cabe na lista
-    bool ordenada;      //flag para verificar se a lista é ordenada
+    int *elementos; //ponteiro para apontar onde estão os elementos de fato
+    int tamanho; //quantidade de elementos armazenados
+    int capacidade; //capacidade total que cabe na lista
+    bool ordenada; //flag para verificar se a lista é ordenada
 } lista_t;
 
 
 // Cria uma lista vazia
-lista_t* criar_lista(int capacidade, bool ordenada) {
+lista_t *criar_lista(int capacidade, bool ordenada) {
     lista_t *lista = malloc(sizeof(lista_t));
     lista->elementos = malloc(sizeof(int) * capacidade);
     lista->capacidade = capacidade;
@@ -32,7 +32,6 @@ void destruir_lista(lista_t *lista) {
     free(lista);
 }
 
-
 //verifica se a lista está vazia
 bool verificar_lista_vazia(lista_t *lista) {
     return lista->tamanho == 0;
@@ -43,13 +42,16 @@ bool verificar_lista_cheia(lista_t *lista) {
     return lista->tamanho == lista->capacidade;
 }
 
-
 void inserir_nao_ordenada(lista_t *lista, int valor_a_inserir) {
+    if (verificar_lista_cheia(lista)) {
+        // realocar se estiver cheia a memória
+        lista->elementos = realloc(lista, sizeof(int) * lista->capacidade * 2);
+    }
+
     //adiciona o elemento na primeira posição livre
     lista->elementos[lista->tamanho] = valor_a_inserir;
     lista->tamanho++;
 }
-
 
 void inserir_ordenada(lista_t *lista, int valor_a_inserir) {
     int i = 0;
@@ -66,7 +68,6 @@ void inserir_ordenada(lista_t *lista, int valor_a_inserir) {
     lista->tamanho++;
 }
 
-
 void inserir_lista(lista_t *lista, const int valor_a_inserir) {
     if (verificar_lista_cheia(lista)) {
         printf("Erro: A lista esta cheia!\n");
@@ -80,9 +81,7 @@ void inserir_lista(lista_t *lista, const int valor_a_inserir) {
     }
 }
 
-
-
-int busca_linear(lista_t* lista, int valor_a_buscar) {
+int busca_linear(lista_t *lista, int valor_a_buscar) {
     for (int i = 0; i < lista->tamanho; i++) {
         if (lista->elementos[i] == valor_a_buscar) {
             return i; //retorna o índice
@@ -91,8 +90,7 @@ int busca_linear(lista_t* lista, int valor_a_buscar) {
     return -1;
 }
 
-
-int busca_binaria(lista_t* lista, int valor_a_buscar) {
+int busca_binaria(lista_t *lista, int valor_a_buscar) {
     int esquerda = 0;
     int direita = lista->tamanho - 1;
 
@@ -119,11 +117,37 @@ int buscar_elementos_lista(lista_t *lista, int valor_a_buscar) {
     }
 }
 
+int limitar_posicao(lista_t *lista, int posicao) {
+    if (posicao > lista->tamanho) {
+        return lista->tamanho;
+    }
+    if (posicao < 0) {
+        return 0;
+    }
+}
 
+int buscar_na_posicao_lista(lista_t *lista, int posicao) {
+    return lista->elementos[posicao]; // retornando o valor que o indice está indicando
+}
 
+void inserir_na_posicao_lista(lista_t *lista, int valor_a_inserir, int posicao) {
+    int indicie = limitar_posicao(lista_t *lista, int posicao);
+
+    if (lista->ordenada == false) {
+        inserir_nao_ordenada(lista, lista->elementos[indicie]); // copiando o valor que está na posição para o final
+        lista->elementos[indicie] = valor_a_inserir; // sobreescrevendo na posição desejada
+    } else {
+        // como é ordenada, não podemos colocar em qualquer lugar
+        inserir_ordenada(lista, valor_a_inserir);
+    }
+}
 
 
 void remover_elemento_lista(lista_t *lista, int valor_a_remover) {
+    if (verificar_lista_vazia(lista)) {
+        return;
+    }
+
     int indice = buscar_elementos_lista(lista, valor_a_remover);
 
     if (indice < 0) {
@@ -142,8 +166,13 @@ void remover_elemento_lista(lista_t *lista, int valor_a_remover) {
     lista->tamanho--;
 }
 
+void remover_na_posicao_lista(lista_t *lista, int posicao) {
 
+    int indicie = limitar_posicao(lista_t *lista, int posicao);
 
+    int valor = lista->elementos[indicie];
+    remover_elemento_lista(lista, valor);
+}
 
 //Imprime o primeiro elemento da lista e o tamanho da lista
 //função necessária para o laboratório
@@ -168,4 +197,3 @@ void imprimir_lista_completa(lista_t *lista) {
     }
     printf("]\n");
 }
-

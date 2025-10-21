@@ -26,7 +26,7 @@ int inicio_fila(fila_t *f);
 void mostrar_elementos(fila_t *f);
 
 
-//lista não ordenada
+//lista
 typedef struct lista_linear lista_t;
 lista_t* criar_lista(int capacidade, bool ordenada);
 void destruir_lista (lista_t* lista);
@@ -38,6 +38,8 @@ void inserir_lista (lista_t* lista, int valor_a_inserir);
 void imprimir_primeiro_e_tamanho(lista_t *lista);
 void imprimir_lista_completa(lista_t *lista);
 int tamanho_lista_linear(lista_t *lista);
+int buscar_na_posicao_lista(lista_t *lista, int posicao);
+void inserir_na_posicao_lista(lista_t *lista, int valor_a_inserir, int posicao);
 
 //lista ligada
 typedef struct no no_t;
@@ -54,5 +56,11 @@ void destruir_lista_ligada_circular (no_t **inicio);
 void listar_lista_encadeada_lab_7(no_t** inicio);
 no_t* inicio_lista_encadeada_lab_7(no_t** inicio);
 
+//lista encadeada dupla
+typedef struct no_duplo no_duplo_t;
+no_duplo_t* criar_lista_encadeada_dupla(int valor);
+void adicionar_na_lista_encadeada_dupla(no_duplo_t **inicio, int valor);
+no_duplo_t* buscar_na_lista_encadeada_dupla(no_t** inicio, int valor);
+void remover_da_lista_encadeada_dupla(no_duplo_t** inicio, int valor);
 
 #endif
