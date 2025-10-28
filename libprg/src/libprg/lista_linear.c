@@ -117,21 +117,21 @@ int buscar_elementos_lista(lista_t *lista, int valor_a_buscar) {
     }
 }
 
-// int limitar_posicao(lista_t *lista, int posicao) {
-//     if (posicao > lista->tamanho) {
-//         return lista->tamanho;
-//     }
-//     if (posicao < 0) {
-//         return 0;
-//     }
-// }
+int limitar_posicao(lista_t *lista, int posicao) {
+    if (posicao > lista->tamanho) {
+        return lista->tamanho;
+    }
+    if (posicao < 0) {
+        return 0;
+    }
+}
 
 int buscar_na_posicao_lista(lista_t *lista, int posicao) {
     return lista->elementos[posicao]; // retornando o valor que o indice está indicando
 }
 
 void inserir_na_posicao_lista(lista_t *lista, int valor_a_inserir, int posicao) {
-    int indicie = limitar_posicao(lista_t *lista, int posicao);
+    int indicie = limitar_posicao(lista, posicao);
 
     if (lista->ordenada == false) {
         inserir_nao_ordenada(lista, lista->elementos[indicie]); // copiando o valor que está na posição para o final
@@ -168,7 +168,7 @@ void remover_elemento_lista(lista_t *lista, int valor_a_remover) {
 
 void remover_na_posicao_lista(lista_t *lista, int posicao) {
 
-    int indicie = limitar_posicao(lista_t *lista, int posicao);
+    int indicie = limitar_posicao(lista, posicao);
 
     int valor = lista->elementos[indicie];
     remover_elemento_lista(lista, valor);
