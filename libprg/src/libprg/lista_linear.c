@@ -117,14 +117,14 @@ int buscar_elementos_lista(lista_t *lista, int valor_a_buscar) {
     }
 }
 
-int limitar_posicao(lista_t *lista, int posicao) {
-    if (posicao > lista->tamanho) {
-        return lista->tamanho;
-    }
-    if (posicao < 0) {
-        return 0;
-    }
-}
+// int limitar_posicao(lista_t *lista, int posicao) {
+//     if (posicao > lista->tamanho) {
+//         return lista->tamanho;
+//     }
+//     if (posicao < 0) {
+//         return 0;
+//     }
+// }
 
 int buscar_na_posicao_lista(lista_t *lista, int posicao) {
     return lista->elementos[posicao]; // retornando o valor que o indice está indicando
