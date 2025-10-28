@@ -46,21 +46,27 @@ typedef struct no no_t;
 no_t* criar_lista_encadeada (int valor);
 void inserir_elemento_lista_encadeada(no_t** inicio, int valor_a_inserir);
 void remover_elementos_lista_encadeada(no_t** inicio, int valor_a_remover);
-no_t *buscar_elementos_lista_encadeada(no_t **inicio, int valor_a_buscar);
+no_t *buscar_elementos_lista_encadeada(no_t *inicio, int valor_a_buscar);
 void destruir_lista_ligada (no_t **inicio);
+void inserir_na_posicao_lista_encadeada(no_t **inicio, int valor, int posicao);
+void remover_na_posicao_lista_encadeada(no_t **inicio, int posicao);
+
 
 //lista_circular
 no_t *criar_lista_encadeada_circular(int valor);
 void inserir_elemento_lista_encadeada_circular(no_t **inicio, int valor_a_inserir);
 void destruir_lista_ligada_circular (no_t **inicio);
-void listar_lista_encadeada_lab_7(no_t** inicio);
-no_t* inicio_lista_encadeada_lab_7(no_t** inicio);
+void listar_lista_encadeada_lab_7(no_t* inicio);
+no_t* inicio_lista_encadeada_lab_7(no_t* inicio);
+void inserir_na_posicao_lista_circular(no_t **inicio, int valor, int posicao);
+void remover_na_posicao_lista_circular(no_t **inicio, int posicao);
+
 
 //lista encadeada dupla
 typedef struct no_duplo no_duplo_t;
 no_duplo_t* criar_lista_encadeada_dupla(int valor);
 void adicionar_na_lista_encadeada_dupla(no_duplo_t **inicio, int valor);
-no_duplo_t* buscar_na_lista_encadeada_dupla(no_t** inicio, int valor);
+no_duplo_t *buscar_na_lista_encadeada_dupla(no_duplo_t *inicio, int valor);
 void remover_da_lista_encadeada_dupla(no_duplo_t** inicio, int valor);
 
 #endif
