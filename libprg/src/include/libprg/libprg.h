@@ -40,6 +40,7 @@ void imprimir_lista_completa(lista_t *lista);
 int tamanho_lista_linear(lista_t *lista);
 int buscar_na_posicao_lista(lista_t *lista, int posicao);
 void inserir_na_posicao_lista(lista_t *lista, int valor_a_inserir, int posicao);
+void remover_na_posicao_lista(lista_t *lista, int posicao);
 
 //lista ligada
 typedef struct no no_t;
@@ -68,5 +69,7 @@ no_duplo_t* criar_lista_encadeada_dupla(int valor);
 void adicionar_na_lista_encadeada_dupla(no_duplo_t **inicio, int valor);
 no_duplo_t *buscar_na_lista_encadeada_dupla(no_duplo_t *inicio, int valor);
 void remover_da_lista_encadeada_dupla(no_duplo_t** inicio, int valor);
+void remover_na_posicao_lista_dupla(no_duplo_t **inicio, int posicao);
+
 
 #endif
