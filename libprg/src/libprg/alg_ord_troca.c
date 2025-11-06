@@ -5,7 +5,7 @@
 
 //bubble_sort
 // preciso saber onde está o array e o tamanho dele
-int* bubble_sort(int* arr, int tamanho) {
+void bubble_sort(int* arr, int tamanho) {
     for (int i = 0; i < tamanho - 1; i++) { // valor do primeiro elemento
         for (int j = i + 1; j < tamanho; j++) { // valor do segundo elemento
             if (arr[i] > arr[j]) { // comparando os dois elementos e fazer a ordenação
