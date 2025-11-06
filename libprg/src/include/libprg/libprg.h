@@ -72,8 +72,7 @@ void remover_da_lista_encadeada_dupla(no_duplo_t** inicio, int valor);
 void remover_na_posicao_lista_dupla(no_duplo_t **inicio, int posicao);
 
 //algoritimos de ordenação
-void
-bubble_sort(int* arr, int tamanho);
+void bubble_sort(int* arr, int tamanho);
 
 
 #endif
