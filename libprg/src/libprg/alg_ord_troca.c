@@ -6,13 +6,21 @@
 //selection_sort
 // preciso saber onde está o array e o tamanho dele
 void selection_sort(int* arr, int tamanho) {
-    for (int i = 0; i < tamanho - 1; i++) { // valor do primeiro elemento
-        for (int j = i + 1; j < tamanho; j++) { // valor do segundo elemento
-            if (arr[j] < arr[i]) { // comparando os dois elementos e fazer a ordenação
-                int aux = arr[j];
-                arr[j] = arr[i];
-                arr[i] = aux;
+    for (int i = 0; i < tamanho - 1; i++) {
+
+        // encontra o índice do menor elemento (não o valor)
+        int min_idx = i; // assume que 'i' é o menor
+        for (int j = i + 1; j < tamanho; j++) {
+            if (arr[j] < arr[min_idx]) {
+                min_idx = j; // encontramos um menor, atualiza o *índice*
             }
+        }
+
+        // faz a troca no final
+        if (min_idx != i) {
+            int aux = arr[i];
+            arr[i] = arr[min_idx];
+            arr[min_idx] = aux;
         }
     }
 }
