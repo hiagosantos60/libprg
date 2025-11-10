@@ -73,6 +73,7 @@ void remover_na_posicao_lista_dupla(no_duplo_t **inicio, int posicao);
 
 //algoritimos de ordenação
 void selection_sort(int* arr, int tamanho);
-
+void bubble_sort(int* arr, int tamanho);
+void insertion_sort(int* arr, int tamanho);
 
 #endif
