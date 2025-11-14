@@ -55,3 +55,66 @@ void bubble_sort(int* arr, int tamanho) {
         }
     }
 }
+
+//merge_sort()
+//conquistar
+void merge(int* arr, int esquerda, int direita, int meio) {
+    int tamanho_esquerda = meio - esquerda + 1;
+    int tamanho_direita = direita - meio;
+    int tamanho_total = tamanho_direita + tamanho_esquerda;
+    int* aux = (int*) malloc(tamanho_total * sizeof(int));
+
+    int i = esquerda; // ptr para parte da esquerda
+    int j = meio+1; // ptr para parte da direira
+    int k = 0; // ptr para o array aux
+
+    //enquanto o da esquerda for menor que o do meio
+    //e enquanto o da indicardor da direita não chega no final do array
+    while (i <= meio && j <= direita) {
+        if (arr[i] <= arr[j]) { // faz a comparação entre os dois valores indicados
+            aux[k] = arr[i];
+            i = i + 1;
+        } else { // caso contrário
+            aux[k] = arr[j];
+            j = j + 1;
+        }
+        k = k + 1;
+    }
+
+    while (i <= meio) { // se o subarray da parte da direita acabou
+        aux[k] = arr[i];
+        k = k + 1;
+        i = i + 1;
+    }
+
+    while (j <= direita) { // se o subarray da parte da esquerda acabou
+        aux[k] = arr[j];
+        k = k + 1;
+        j = j + 1;
+    }
+
+    for (int m = esquerda; m <= direita; m++) {
+        arr[m] = aux[m - esquerda];
+    }
+
+    free(aux);
+}
+
+//separar
+
+//esquerda e direita não são valores em si, mas os indicadores de posição
+int* merge_sort(int* arr, int esquerda, int direita) {
+    if (esquerda < direita) {
+        int meio = esquerda + (direita - esquerda)/2; //divisão
+
+        // esse codigo irá rodar recusivamente até que tudo esteja dividido
+        //essa parte do código se faz possível por conta do call stack
+        //o que faz que o compilador saiba onde deve retornar para continuar a operação
+
+        merge_sort(arr, esquerda, meio); // dividir a parte da esquerda
+        merge_sort(arr, meio+1, direita); // dividir a parte da direita
+
+        merge(arr, esquerda, direita, meio);
+    }
+    return arr;
+}
