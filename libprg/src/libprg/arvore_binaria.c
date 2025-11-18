@@ -1,5 +1,6 @@
 #include "libprg/libprg.h"
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct no_arvore {
     int valor;
@@ -31,4 +32,11 @@ no_arvore* inserir_valor_arvore(no_arvore *raiz, int valor) {
         raiz->direita = inserir_valor_arvore(raiz->direita, valor);
     }
     return raiz;
+}
+
+bool buscar_valor_arvore(no_arvore *raiz, int valor) {
+    if (raiz == NULL) return false;
+    if (valor == raiz->valor) return true;
+    if (valor < raiz->valor) return buscar_valor_arvore(raiz->esquerda, valor);
+    return buscar_valor_arvore(raiz->direita, valor);
 }
