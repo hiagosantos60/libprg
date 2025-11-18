@@ -40,3 +40,25 @@ bool buscar_valor_arvore(no_arvore *raiz, int valor) {
     if (valor < raiz->valor) return buscar_valor_arvore(raiz->esquerda, valor);
     return buscar_valor_arvore(raiz->direita, valor);
 }
+
+no_arvore* remover_valor_arvore(no_arvore *raiz, int valor) {
+    if (raiz == NULL) return raiz;
+    if (valor < raiz->valor) {
+        raiz->esquerda = remover_valor_arvore(raiz->esquerda, valor);
+    } else if (valor > raiz->valor) {
+        raiz->direita = remover_valor_arvore(raiz->direita, valor);
+    } else { // caso seja igual
+        // if no falha ou no com um filho
+        if (raiz->esquerda == NULL || raiz->direita == NULL) {
+
+
+
+        } else { // se falhar deve ter dois filhos
+
+
+
+        }
+    }
+    return raiz;
+}
+
