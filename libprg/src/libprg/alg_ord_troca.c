@@ -1,5 +1,3 @@
-//lab_10 - Implementar algoritimos de ordenação
-
 #include <stdlib.h>
 #include "libprg/libprg.h"
 
@@ -64,9 +62,9 @@ void merge(int* arr, int esquerda, int direita, int meio) {
     int tamanho_total = tamanho_direita + tamanho_esquerda;
     int* aux = (int*) malloc(tamanho_total * sizeof(int));
 
-    int i = esquerda; // ptr para parte da esquerda
-    int j = meio+1; // ptr para parte da direira
-    int k = 0; // ptr para o array aux
+    int i = esquerda; // indicador para parte da esquerda
+    int j = meio+1; // indicador para parte da direira
+    int k = 0; // indicador para o array aux
 
     //enquanto o da esquerda for menor que o do meio
     //e enquanto o da indicardor da direita não chega no final do array
@@ -104,17 +102,49 @@ void merge(int* arr, int esquerda, int direita, int meio) {
 
 //esquerda e direita não são valores em si, mas os indicadores de posição
 int* merge_sort(int* arr, int esquerda, int direita) {
-    if (esquerda < direita) {
+    if (esquerda < direita) { // ainda estou dentro do array
         int meio = esquerda + (direita - esquerda)/2; //divisão
 
         // esse codigo irá rodar recusivamente até que tudo esteja dividido
-        //essa parte do código se faz possível por conta do call stack
-        //o que faz que o compilador saiba onde deve retornar para continuar a operação
+        // essa parte do código se faz possível por conta do call stack
+        // o que faz que o compilador saiba onde deve retornar para continuar a operação
 
         merge_sort(arr, esquerda, meio); // dividir a parte da esquerda
         merge_sort(arr, meio+1, direita); // dividir a parte da direita
 
         merge(arr, esquerda, direita, meio);
+    }
+    return arr;
+}
+
+
+//quicksort()
+int particiona(int* arr, int inicio, int fim) {
+    int pivo = arr[inicio]; // fixa pivo na primeira posição
+    int i = inicio; // indice que vamos usar para trocar a posição
+
+    for (int j = inicio + 1; j <= fim; j++) { //loop de comparação que começa no segundo elemento
+        if (arr[j] <= pivo) { // no caso do elemento em j for menor ou igual que o pivo
+            i++;
+            //trocar_posicao
+            int aux = arr[i];
+            arr[i] = arr[j];
+            arr[j] = aux;
+        }
+    }
+
+    int aux = arr[inicio];
+    arr[inicio] = arr[i];
+    arr[i] = aux;
+
+    return i;
+}
+
+int* quicksort(int* arr, int inicio, int fim) {
+    if (inicio < fim) {
+        int p = particiona(arr, inicio, fim);
+        quicksort(arr, inicio, p-1);
+        quicksort(arr, p+1, fim);
     }
     return arr;
 }

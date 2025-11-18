@@ -75,8 +75,7 @@ void remover_na_posicao_lista_dupla(no_duplo_t **inicio, int posicao);
 void selection_sort(int* arr, int tamanho);
 void bubble_sort(int* arr, int tamanho);
 void insertion_sort(int* arr, int tamanho);
-
 int* merge_sort(int* arr, int esquerda, int direita);
-void merge(int* arr, int esquerda, int direita, int meio);
+int* quicksort(int* arr, int inicio, int fim) ;
 
 #endif
