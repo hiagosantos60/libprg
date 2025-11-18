@@ -22,3 +22,13 @@ void destruir_no_arvore(no_arvore *no) {
     }
 }
 
+no_arvore* inserir_valor_arvore(no_arvore *raiz, int valor) {
+    if (raiz == NULL) {
+        return criar_no_arvore(valor);
+    } else if (valor < raiz->valor) {
+        raiz->esquerda = inserir_valor_arvore(raiz->esquerda, valor);
+    } else if (valor > raiz->valor) {
+        raiz->direita = inserir_valor_arvore(raiz->direita, valor);
+    }
+    return raiz;
+}
