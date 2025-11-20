@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <libprg/libprg.h>
 
@@ -55,6 +56,12 @@ int *mostra_pilha(pilha_t *ponteiro) {
         elementos_copia[i] = ponteiro->elementos[i];
     }
     return elementos_copia;
+}
+
+void imprimir_pilha(pilha_t *ponteiro) {
+    for (int i = 0; i <= ponteiro->topo; i++) {
+        printf("%d ", ponteiro->elementos[i]);
+    }
 }
 
 //destruir pilha
