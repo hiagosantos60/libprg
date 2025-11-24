@@ -72,9 +72,17 @@ no_arvore* remover_valor_arvore(no_arvore *raiz, int valor) {
 }
 
 
-
+// será necessário percorrer a arvore por completo, tanto pela direita quanto pela esquerda
 int maior_valor_arvore(no_arvore *raiz) {
+    if (raiz == NULL) return 0;
 
+    no_arvore *aux = raiz;
+
+    while (raiz->direita != NULL) {
+        aux = aux->direita;
+    }
+
+    return aux->valor;
 }
 
 int menor_valor_arvore(no_arvore *raiz) {
