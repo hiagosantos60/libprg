@@ -90,5 +90,4 @@ no_arvore* inserir_valor_arvore(no_arvore *raiz, int valor);
 void destruir_no_arvore(no_arvore *no);
 no_arvore* criar_no_arvore(int valor);
 
-
 #endif
