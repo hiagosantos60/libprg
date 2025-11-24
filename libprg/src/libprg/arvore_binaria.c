@@ -42,23 +42,45 @@ bool buscar_valor_arvore(no_arvore *raiz, int valor) {
 }
 
 no_arvore* remover_valor_arvore(no_arvore *raiz, int valor) {
-    if (raiz == NULL) return raiz;
-    if (valor < raiz->valor) {
+    if (raiz == NULL) return raiz; // se a arvore estiver vazia
+
+    if (valor < raiz->valor) { // valores menores a esquerda
         raiz->esquerda = remover_valor_arvore(raiz->esquerda, valor);
-    } else if (valor > raiz->valor) {
+    } else if (valor > raiz->valor) { // valores maiores a direita
         raiz->direita = remover_valor_arvore(raiz->direita, valor);
-    } else { // caso seja igual
-        // if no falha ou no com um filho
-        if (raiz->esquerda == NULL || raiz->direita == NULL) {
+    } else { // caso o valor passado seja igual ao nó
+        if (raiz->esquerda == NULL) { // sobe o da direita
+            no_arvore *aux = raiz->direita;
+            free(raiz);
+            return aux;
+        } else if (raiz->direita == NULL) { // sobe o da esquerda
+            no_arvore *aux = raiz->esquerda;
+            free(raiz);
+            return aux;
+        } else { // caso se o nó tiver dois filhos
+            no_arvore *aux = raiz->direita;
 
+            while (aux && aux->esquerda != NULL) { // vai descendo pela esquerda
+                aux = aux->esquerda;
+            }
 
-
-        } else { // se falhar deve ter dois filhos
-
-
-
+            raiz->valor = aux->valor;
+            raiz->direita = remover_valor_arvore(raiz->direita, aux->valor);
         }
     }
     return raiz;
 }
 
+
+
+int maior_valor_arvore(no_arvore *raiz) {
+
+}
+
+int menor_valor_arvore(no_arvore *raiz) {
+
+}
+
+int altura_arvore(no_arvore* raiz) {
+
+}
