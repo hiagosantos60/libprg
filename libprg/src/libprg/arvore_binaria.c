@@ -97,5 +97,14 @@ int menor_valor_arvore(no_arvore *raiz) {
 }
 
 int altura_arvore(no_arvore* raiz) {
+    if (raiz == NULL) return 0;
 
+    int pela_esquerda = altura_arvore(raiz->esquerda);
+    int pela_direita = altura_arvore(raiz->direita);
+
+    if (pela_direita > pela_esquerda) {
+        return 1 + pela_direita;
+    } else {
+        return 1 + pela_esquerda;
+    }
 }
