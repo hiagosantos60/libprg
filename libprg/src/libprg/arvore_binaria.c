@@ -77,7 +77,7 @@ int maior_valor_arvore(no_arvore *raiz) {
 
     no_arvore *aux = raiz;
 
-    while (raiz->direita != NULL) {
+    while (aux->direita != NULL) {
         aux = aux->direita;
     }
 
@@ -89,7 +89,7 @@ int menor_valor_arvore(no_arvore *raiz) {
 
     no_arvore *aux = raiz;
 
-    while (raiz->esquerda != NULL) {
+    while (aux->esquerda != NULL) {
         aux = aux->esquerda;
     }
 
