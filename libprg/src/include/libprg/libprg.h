@@ -79,4 +79,16 @@ void insertion_sort(int* arr, int tamanho);
 int* merge_sort(int* arr, int esquerda, int direita);
 int* quicksort(int* arr, int inicio, int fim) ;
 
+//arvore binaria
+typedef struct no_arvore no_arvore;
+int altura_arvore(no_arvore* raiz);
+int menor_valor_arvore(no_arvore *raiz);
+int maior_valor_arvore(no_arvore *raiz);
+no_arvore* remover_valor_arvore(no_arvore *raiz, int valor);
+bool buscar_valor_arvore(no_arvore *raiz, int valor);
+no_arvore* inserir_valor_arvore(no_arvore *raiz, int valor);
+void destruir_no_arvore(no_arvore *no);
+no_arvore* criar_no_arvore(int valor);
+
+
 #endif
