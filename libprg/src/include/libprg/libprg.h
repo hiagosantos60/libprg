@@ -89,5 +89,8 @@ bool buscar_valor_arvore(no_arvore *raiz, int valor);
 no_arvore* inserir_valor_arvore(no_arvore *raiz, int valor);
 void destruir_no_arvore(no_arvore *no);
 no_arvore* criar_no_arvore(int valor);
+void imprimir_arvore_pre_order(no_arvore *raiz);
+void imprimir_arvore_pos_order(no_arvore *raiz);
+void imprimir_arvore_in_order (no_arvore *raiz);
 
 #endif

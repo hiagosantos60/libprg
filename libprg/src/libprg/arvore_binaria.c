@@ -1,6 +1,7 @@
 #include "libprg/libprg.h"
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 typedef struct no_arvore {
     int valor;
@@ -108,3 +109,54 @@ int altura_arvore(no_arvore* raiz) {
         return 1 + pela_esquerda;
     }
 }
+
+//depth-first
+void imprimir_arvore_in_order (no_arvore *raiz) {
+    if (raiz != NULL) {
+        imprimir_arvore_in_order(raiz->esquerda);
+        printf("%d ", raiz->valor);
+        imprimir_arvore_in_order(raiz->direita);
+    }
+}
+
+void imprimir_arvore_pos_order(no_arvore *raiz) {
+    if (raiz != NULL) {
+        imprimir_arvore_pos_order(raiz->esquerda);
+        imprimir_arvore_pos_order(raiz->direita);
+        printf("%d ", raiz->valor);
+    }
+}
+
+void imprimir_arvore_pre_order(no_arvore *raiz) {
+    if (raiz != NULL) {
+        printf("%d ", raiz->valor);
+        imprimir_arvore_pre_order(raiz->esquerda);
+        imprimir_arvore_pre_order(raiz->direita);
+    }
+}
+
+// void imprimir_arvore_por_niveis(no_arvore *raiz) {
+//     if (raiz == NULL) return; // Se a árvore for vazia, não faz nada
+//
+//     // cria a fila
+//     fila_t* fila = criar_fila(tamanho_arvore);
+//
+//     enfileirar(fila, raiz);
+//
+//     while (!fila_vazia(fila)) {
+//
+//         no_arvore* atual = desenfileirar(fila);
+//
+//         printf("%d ", atual->valor);
+//
+//         if (atual->esquerda != NULL) {
+//             enfileirar(fila, atual->esquerda);
+//         }
+//
+//         if (atual->direita != NULL) {
+//             enfileirar(fila, atual->direita);
+//         }
+//     }
+//
+//     destruir_fila(fila);
+// }
