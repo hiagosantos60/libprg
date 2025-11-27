@@ -45,7 +45,8 @@ dicionario_t *criar_dicionario(int m) {
 int hash(const char* chave, int m) {
     int soma = 0;
     for (int i = 0; chave[i] != '\0'; i++) {
-        soma += (i + 1) * chave[i];
+        int valor_do_char = chave[i]*1; // pega o valor ascii e coloca em int
+        soma += (i + 1) * valor_do_char; // multiplica na posição para ser unica (exemplo: lago | gola)
     }
     return soma % m;
 }

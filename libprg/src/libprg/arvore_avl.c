@@ -22,18 +22,6 @@ no_avl_t* criar_arvore_avl(int valor, int altura) {
     return u;
 }
 
-no_avl_t* balancear (no_avl_t* v) {
-
-}
-
-no_avl_t* inserir_na_arvore_avl(no_avl_t* v, int valor) {
-
-}
-
-no_avl_t* remover_da_arvore_avl(no_avl_t* v, int valor) {
-
-}
-
 no_avl_t* rotacao_avl_esquerda(no_avl_t* v) {
     no_avl_t* u = v->direita;
 
@@ -72,3 +60,55 @@ no_avl_t* rotacao_dupla_esquerda(no_avl_t* v) {
     return rotacao_avl_esquerda(v);
 }
 
+int altura_arvore_avl(no_avl_t* v) {
+    if (v == NULL) {
+        return 0;
+    } else {
+        return v->altura;
+    }
+}
+
+// negativo se a subárvore direita for maior
+int fator_balanceamento(no_avl_t* v) {
+    if (v == NULL) {
+        return 0;
+    } else {
+        return altura_arvore_avl(v->esquerda) - altura_arvore_avl(v->direita);
+    }
+}
+
+no_avl_t* balancear(no_avl_t* v) {
+    int fb = fator_balanceamento(v);
+    if (fb > 1){// nó desregulado tem filho desregulado à esquerda
+        if (fator_balanceamento(v->esquerda) > 0) {
+            // caso esquerda−esquerda
+            return rotacao_avl_direita(v);
+        } else {
+            // caso esquerda−direita
+            return rotacao_dupla_direita(v);
+        }
+    } else if (fb < -1) { // nó desregulado tem filho desregulado à direita
+        if (fator_balanceamento(v->direita) < 0) {
+            // caso direita−direita
+            return rotacao_avl_esquerda(v);
+        } else {
+            // caso direita−esquerda
+            return rotacao_dupla_esquerda(v);
+        }
+    }
+    return v;
+}
+
+no_avl_t criar_no_avl () {
+
+}
+
+no_avl_t* inserir_na_arvore_avl(no_avl_t* raiz, int valor) {
+    if (raiz == NULL) {
+        v = criar_arvore_avl()
+    }
+}
+
+no_avl_t* remover_da_arvore_avl(no_avl_t* raiz, int valor) {
+
+}
