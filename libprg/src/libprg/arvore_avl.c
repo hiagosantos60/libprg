@@ -93,10 +93,6 @@ no_avl_t* balancear(no_avl_t* v) {
     return v;
 }
 
-no_avl_t criar_no_avl () {
-
-}
-
 no_avl_t* inserir_na_arvore_avl(no_avl_t* raiz, int valor) {
     if (raiz == NULL) {
         return criar_arvore_avl(valor, 0);
@@ -117,5 +113,51 @@ no_avl_t* inserir_na_arvore_avl(no_avl_t* raiz, int valor) {
 }
 
 no_avl_t* remover_da_arvore_avl(no_avl_t* raiz, int valor) {
+    if (raiz == NULL) return raiz;
 
+    if (valor < raiz->valor) {
+        raiz->esquerda = remover_da_arvore_avl(raiz->esquerda, valor);
+    } else if (valor > raiz->valor) {
+        raiz->direita = remover_da_arvore_avl(raiz->direita, valor);
+    } else {
+
+        // no com dois filhos
+        // encontrar o menor valor para subir
+        if (raiz->esquerda != NULL && raiz->direita != NULL) {
+
+            no_avl_t* sucessor = raiz->direita;
+            while (sucessor->esquerda != NULL) {
+                sucessor = sucessor->esquerda;
+            }
+
+            raiz->valor = sucessor->valor;
+
+            raiz->direita = remover_da_arvore_avl(raiz->direita, sucessor->valor);
+        }
+        else {
+            no_avl_t *temp;
+
+            if (raiz->esquerda != NULL) {
+                temp = raiz->esquerda; // pega o filho da esquerda
+            } else {
+                temp = raiz->direita;  // se não tem esquerda, pega o da direita
+            }
+
+            if (temp == NULL) {
+                free(raiz);
+                return NULL;
+            } else {
+                no_avl_t* aux = temp;
+                free(raiz);
+                return aux;
+            }
+        }
+    }
+
+    // se a arvore ficou vazia
+    if (raiz == NULL) return raiz;
+
+    raiz->altura = 1 + max(altura_arvore_avl(raiz->esquerda), altura_arvore_avl(raiz->direita));
+
+    return balancear(raiz);
 }
