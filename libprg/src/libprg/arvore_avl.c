@@ -161,3 +161,12 @@ no_avl_t* remover_da_arvore_avl(no_avl_t* raiz, int valor) {
 
     return balancear(raiz);
 }
+
+void destruir_arvore_avl(no_avl_t* raiz) {
+    if (raiz)
+    {
+        destruir_arvore_avl(raiz->esquerda);
+        destruir_arvore_avl(raiz->direita);
+        free(raiz);
+    }
+}
