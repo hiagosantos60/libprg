@@ -95,10 +95,6 @@ void imprimir_arvore_in_order (no_arvore *raiz);
 //arvore avl
 typedef struct arvore_avl_t no_avl_t;
 no_avl_t* criar_arvore_avl(int valor, int altura);
-no_avl_t* rotacao_avl_esquerda(no_avl_t* v);
-no_avl_t* rotacao_avl_direita(no_avl_t* v);
-no_avl_t* rotacao_dupla_direita(no_avl_t* v);
-no_avl_t* rotacao_dupla_esquerda(no_avl_t* v);
 int altura_arvore_avl(no_avl_t* v);
 no_avl_t* inserir_na_arvore_avl(no_avl_t* raiz, int valor);
 no_avl_t* remover_da_arvore_avl(no_avl_t* raiz, int valor);

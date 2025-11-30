@@ -24,28 +24,22 @@ no_avl_t* criar_arvore_avl(int valor, int altura) {
 
 no_avl_t* rotacao_avl_esquerda(no_avl_t* v) {
     no_avl_t* u = v->direita;
-
     v->direita = u->esquerda;
-
     u->esquerda = v;
 
-    v->altura = max(v->esquerda->altura, v->direita->altura + 1);
-
-    u->altura = max(u->esquerda->altura, u->direita->altura + 1);
+    v->altura = max(altura_arvore_avl(v->esquerda), altura_arvore_avl(v->direita)) + 1;
+    u->altura = max(altura_arvore_avl(u->esquerda), altura_arvore_avl(u->direita)) + 1;
 
     return u;
 }
 
 no_avl_t* rotacao_avl_direita(no_avl_t* v) {
     no_avl_t* u = v->esquerda;
-
     v->esquerda = u->direita;
-
     u->direita = v;
 
-    v->altura = max(v->direita->altura, v->esquerda->altura + 1);
-
-    u->altura = max(u->direita->altura, u->esquerda->altura + 1);
+    v->altura = max(altura_arvore_avl(v->esquerda), altura_arvore_avl(v->direita)) + 1;
+    u->altura = max(altura_arvore_avl(u->esquerda), altura_arvore_avl(u->direita)) + 1;
 
     return u;
 }
@@ -105,8 +99,21 @@ no_avl_t criar_no_avl () {
 
 no_avl_t* inserir_na_arvore_avl(no_avl_t* raiz, int valor) {
     if (raiz == NULL) {
-        v = criar_arvore_avl()
+        return criar_arvore_avl(valor, 0);
     }
+
+    if (valor < raiz->valor) {
+        raiz->esquerda = inserir_na_arvore_avl(raiz->esquerda, valor);
+    } else if (valor > raiz->valor) {
+        raiz->direita = inserir_na_arvore_avl(raiz->direita, valor);
+    } else {
+        return raiz; // valor duplicado não é inserido
+    }
+
+    //ajustar altura da arvore
+    raiz->altura = 1 + max(altura_arvore_avl(raiz->esquerda), altura_arvore_avl(raiz->direita));
+
+    return balancear(raiz);
 }
 
 no_avl_t* remover_da_arvore_avl(no_avl_t* raiz, int valor) {

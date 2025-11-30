@@ -160,3 +160,6 @@ void imprimir_arvore_pre_order(no_arvore *raiz) {
 //
 //     destruir_fila(fila);
 // }
+
+//------------Árvore AVL--------------
+
