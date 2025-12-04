@@ -335,3 +335,11 @@ void destruir_arvore_avl(no_avl_t* raiz) {
         free(raiz);
     }
 }
+
+void imprimir_arvore_avl_in_order(no_avl_t *raiz) {
+    if (raiz != NULL) {
+        imprimir_arvore_avl_in_order(raiz->esquerda);
+        printf("%d ", raiz->valor);
+        imprimir_arvore_avl_in_order(raiz->direita);
+    }
+}

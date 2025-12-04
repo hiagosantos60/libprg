@@ -99,6 +99,7 @@ int altura_arvore_avl(no_avl_t* v);
 no_avl_t* inserir_na_arvore_avl(no_avl_t* raiz, int valor);
 no_avl_t* remover_da_arvore_avl(no_avl_t* raiz, int valor);
 void destruir_arvore_avl(no_avl_t* raiz);
+void imprimir_arvore_avl_in_order(no_avl_t *raiz);
 
 //dicionario (hash table)
 typedef struct dicionario dicionario_t;
